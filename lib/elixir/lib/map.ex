@@ -88,7 +88,7 @@ defmodule Map do
       %{1 => :one, 2 => :two, 3 => :three}
 
   Maps also support a specific update syntax to update the value stored under
-  *existing* atom keys:
+  *existing* keys:
 
       iex> map = %{one: 1, two: 2}
       iex> %{map | one: "one"}
