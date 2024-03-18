@@ -1730,6 +1730,11 @@ defmodule Kernel do
   comparison" section](#module-structural-comparison) section
   for more information.
 
+  > #### Comparing floats {: .info}
+  >
+  > It is [not a good idea](https://floating-point-gui.de/errors/comparison/) to directly compare floats that have
+  > been produced dynamically, as floats are imprecise, and values you expect to be equal may not be.
+
   Allowed in guard tests. Inlined by the compiler.
 
   ## Examples
@@ -1740,6 +1745,8 @@ defmodule Kernel do
       iex> 1 == 1.0
       true
 
+      iex> 0.15 + 0.15 == 0.1 + 0.2
+      false
   """
   @doc guard: true
   @spec term == term :: boolean
@@ -1760,6 +1767,11 @@ defmodule Kernel do
   comparison" section](#module-structural-comparison) section
   for more information.
 
+  > #### Comparing floats {: .info}
+  >
+  > It is [not a good idea](https://floating-point-gui.de/errors/comparison/) to directly compare floats that have
+  > been produced dynamically, as floats are imprecise, and values you expect to be equal may not be.
+
   Allowed in guard tests. Inlined by the compiler.
 
   ## Examples
@@ -1770,6 +1782,8 @@ defmodule Kernel do
       iex> 1 != 1.0
       false
 
+      iex> 0.15 + 0.15 != 0.1 + 0.2
+      true
   """
   @doc guard: true
   @spec term != term :: boolean
@@ -1792,6 +1806,16 @@ defmodule Kernel do
   comparison" section](#module-structural-comparison) section
   for more information.
 
+  TODO use this link once OTP 27 is out: https://www.erlang.org/doc/reference_manual/data_types.html#comparisons
+
+  > #### Comparing floats {: .info}
+  >
+  > It is [not a good idea](https://floating-point-gui.de/errors/comparison/) to directly compare floats that have
+  > been produced dynamically, as floats are imprecise, and values you expect to be equal may not be.
+  >
+  > Since OTP 27, this operator considers `+0.0` and `-0.0` to be unequal, as they have different binary
+  > representations. For more information see the [Erlang documentation](https://github.com/erlang/otp/blob/master/system/doc/reference_manual/data_types.md#comparisons).
+
   Allowed in guard tests. Inlined by the compiler.
 
   ## Examples
@@ -1802,6 +1826,8 @@ defmodule Kernel do
       iex> 1 === 1.0
       false
 
+      iex> 0.15 + 0.15 === 0.1 + 0.2
+      false
   """
   @doc guard: true
   @spec term === term :: boolean
@@ -1820,6 +1846,16 @@ defmodule Kernel do
   comparison" section](#module-structural-comparison) section
   for more information.
 
+  TODO use this link once OTP 27 is out: https://www.erlang.org/doc/reference_manual/data_types.html#comparisons
+
+  > #### Comparing floats {: .info}
+  >
+  > It is [not a good idea](https://floating-point-gui.de/errors/comparison/) to directly compare floats that have
+  > been produced dynamically, as floats are imprecise, and values you expect to be equal may not be.
+  >
+  > Since OTP 27, this operator considers `+0.0` and `-0.0` to be unequal, as they have different binary
+  > representations. For more information see the [Erlang documentation](https://github.com/erlang/otp/blob/master/system/doc/reference_manual/data_types.md#comparisons).
+
   Allowed in guard tests. Inlined by the compiler.
 
   ## Examples
@@ -1830,6 +1866,8 @@ defmodule Kernel do
       iex> 1 !== 1.0
       true
 
+      iex> 0.15 + 0.15 !== 0.1 + 0.2
+      true
   """
   @doc guard: true
   @spec term !== term :: boolean
